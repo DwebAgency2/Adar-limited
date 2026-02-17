@@ -770,6 +770,121 @@
         .delay-500 {
             transition-delay: 0.5s;
         }
+
+        /* Navbar Layout Updates */
+        .nav-content {
+            position: relative;
+            justify-content: space-between;
+        }
+
+        .nav-center {
+            display: none;
+            /* Hidden on mobile */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-center {
+                display: flex;
+            }
+
+            .desktop-only {
+                display: inline-block;
+            }
+
+            .hamburger {
+                display: none;
+            }
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #scrollTopBtn.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: var(--color-red-hover);
+            transform: translateY(-5px);
+        }
+
+        /* New Image Layout Utilities */
+        .why-image img,
+        .catalyst-image img,
+        .legacy-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            /* Increased from 4px */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+            /* Optional: subtle border */
+            border: 1px solid var(--color-border);
+        }
+
+        /* Why Section Grid */
+        .why-grid,
+        .catalyst-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1.5fr 1fr;
+                /* More space for text, less for image */
+            }
+
+            .catalyst-grid {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                /* Image smaller, text wider */
+                gap: 3rem;
+                align-items: center;
+            }
+
+            .legacy-grid {
+                grid-template-columns: 1.5fr 1fr !important;
+                /* Override previous 1fr 1fr */
+            }
+        }
     </style>
 </head>
 
@@ -778,20 +893,25 @@
     <!-- NAVBAR -->
     <nav id="navbar">
         <div class="container nav-content">
+            <!-- Left: Logo -->
             <a href="#">
                 <img src="logo/Adar%20Logo%20plain.png" alt="Adar Limited Logo" class="logo">
             </a>
 
-            <div class="nav-links">
+            <!-- Center: Links -->
+            <div class="nav-center">
                 <a href="#programs" class="nav-link">Our Programs</a>
                 <a href="#legacy" class="nav-link">Legacy Tour</a>
-                <a href="#waitlist" class="nav-link btn-nav">Join Waitlist</a>
             </div>
 
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <!-- Right: CTA + Hamburger -->
+            <div class="nav-right">
+                <a href="#waitlist" class="nav-link btn-nav desktop-only">Join Waitlist</a>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -806,7 +926,6 @@
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <!-- Optional Decorative BG Letter -->
         <div class="hero-bg-text">A</div>
 
         <div class="container hero-content">
@@ -831,11 +950,17 @@
     <!-- THE WHY SECTION -->
     <section id="why">
         <div class="container">
-            <div class="why-container reveal">
-                <h2 class="why-statement">Degrees aren't enough. Trends are confusing. Consistency is hard.</h2>
-                <p class="why-body">We bridge the gap between where you are and where your career needs to be. Adar
-                    Limited exists for the young professional who is smart enough to know they're behind, and serious
-                    enough to do something about it.</p>
+            <div class="why-grid reveal">
+                <div class="why-text">
+                    <h2 class="why-statement">Degrees aren't enough. Trends are confusing. Consistency is hard.</h2>
+                    <p class="why-body">We bridge the gap between where you are and where your career needs to be. Adar
+                        Limited exists for the young professional who is smart enough to know they're behind, and
+                        serious
+                        enough to do something about it.</p>
+                </div>
+                <div class="why-image reveal-right delay-200">
+                    <img src="images/photo-2.jpg" alt="Young professional working with focus" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -848,10 +973,9 @@
 
             <div class="grid-3">
 
-                <!-- Card 1: Mastery Pod (Highlighted) -->
+                <!-- Mastery Pod -->
                 <div class="program-card reveal delay-100">
                     <div>
-                        <!-- Diamond icon -->
                         <div class="program-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -868,11 +992,10 @@
                     <a href="#waitlist" class="card-link">Join the Waitlist →</a>
                 </div>
 
-                <!-- Card 2: Career Alignment -->
+                <!-- Career Alignment -->
                 <div class="program-card reveal delay-200">
                     <div>
                         <div class="program-icon">
-                            <!-- Handshake icon -->
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m11 17 2 2a6 6 0 0 0 8-8l-2-2"></path>
@@ -889,35 +1012,60 @@
                     <a href="mailto:adarlimited001@gmail.com" class="card-link">Request a Partnership →</a>
                 </div>
 
-                <!-- Card 3: Catalyst Calls -->
+                <!-- Speaking & Workshops -->
                 <div class="program-card reveal delay-300">
                     <div>
                         <div class="program-icon">
-                            <!-- Zap icon -->
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
                             </svg>
                         </div>
-                        <span class="program-badge">1:1 · Catalyst Session</span>
-                        <h3 class="program-title">Catalyst Calls</h3>
-                        <p class="program-body">30-minute high-impact sessions designed to move you from confusion to
-                            clarity. Whether it's career direction or life alignment — book a session and get unstuck.
-                        </p>
+                        <span class="program-badge">Events · Corporate</span>
+                        <h3 class="program-title">Speaking & Workshops</h3>
+                        <p class="program-body">High-energy sessions on AI literacy, career positioning, and personal
+                            branding. We bring the Adar discipline to your team or event.</p>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Paid Track -->
-                        <a href="https://calendly.com/placeholder/paid-session" target="_blank" class="btn"
-                            style="font-size: 0.9rem; padding: 12px 20px; text-align: center;">
-                            Book Strategy Session
-                        </a>
 
-                        <p style="font-size: 0.7rem; color: #666; text-align: center; margin-top: 4px;">
-                            Payment required for personal advisory.
-                        </p>
-                    </div>
+                    <a href="mailto:adarlimited001@gmail.com" class="card-link">
+                        Book for Event →
+                    </a>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALYST SPOTLIGHT SECTION -->
+    <section id="catalyst-spotlight" style="background-color: var(--color-surface-dark); padding: 80px 0;">
+        <div class="container">
+            <div class="catalyst-grid">
+                <!-- Image on Left -->
+                <div class="catalyst-image reveal-left">
+                    <img src="images/catalyst-1-on-1.jpg" alt="1:1 Catalyst Session" loading="lazy">
+                </div>
+
+                <!-- Text on Right -->
+                <div class="catalyst-text reveal-right delay-200">
+                    <span class="tag">// 1:1 COACHING</span>
+                    <h2 class="font-display" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">
+                        Catalyst Calls
+                    </h2>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white;">
+                        Move from Confusion to Clarity.
+                    </h3>
+                    <p style="margin-bottom: 2rem; color: #ccc;">
+                        30-minute high-impact sessions designed to unlock your potential. Whether it's career direction,
+                        personal branding, or life alignment — book a session and get unstuck.
+                    </p>
+
+                    <a href="https://selar.com/61u73ejk37" target="_blank" class="btn">
+                        Book Strategy Session →
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -933,17 +1081,21 @@
                     across the country — because the best time to build the right foundation is before the career even
                     begins. The Legacy Tour is our commitment to preparing the next generation before they ever feel the
                     pressure of the job market.</p>
-                <p class="text-muted" style="font-style: italic; font-size: 0.9rem;">"Preparing the next generation
+                <p class="text-muted" style="font-style: italic; font-size: 0.9rem; margin-bottom: 2rem;">"Preparing the
+                    next generation
                     before they even start."</p>
+
+                <div class="legacy-stat-block" style="border-left: 3px solid var(--color-red); padding-left: 1.5rem;">
+                    <div class="stat-large">QUARTERLY</div>
+                    <div class="stat-label">Outreach Events</div>
+                    <div class="stat-divider" style="opacity: 0.3; margin: 1rem 0;"></div>
+                    <div class="stat-large">SSS</div>
+                    <div class="stat-label">Secondary School Students Reached</div>
+                </div>
             </div>
 
-            <div class="legacy-stat-block reveal-right delay-200">
-                <div class="stat-large">QUARTERLY</div>
-                <div class="stat-label">Outreach Events</div>
-                <div class="stat-divider"></div>
-                <!-- SSS Placeholder -->
-                <div class="stat-large">SSS</div>
-                <div class="stat-label">Secondary School Students Reached</div>
+            <div class="legacy-image-container reveal-right delay-200">
+                <img src="images/photo-1.jpg" alt="Legacy Tour event in action" loading="lazy">
             </div>
         </div>
     </section>
@@ -1048,39 +1200,55 @@
         </div>
     </footer>
 
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollTopBtn" title="Scroll to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
     <!-- JAVASCRIPT -->
     <script>
-        // 1. Mobile Menu Toggle
+        // Mobile Menu
         function toggleMenu() {
             const overlay = document.getElementById('mobile-menu-overlay');
             overlay.classList.toggle('active');
-
-            // Toggle hamburger animation state if desired, 
-            // but we use a simple close button inside overlay for clarity.
         }
 
-        // 2. Initial Page Load Animations
+        // Page Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const fades = document.querySelectorAll('.fade-in-up');
-
-            // Simple staggered load (already handled by CSS delay classes + IntersectionObserver)
-            // But for the very first hero elements, let's trigger them manually if they are in view
-            // actually IntersectionObserver is better for all.
-
             setupObserver();
 
-            // Navbar Scroll Effect
+            // Navbar & Scroll Button
+            const navbar = document.getElementById('navbar');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
             window.addEventListener('scroll', () => {
-                const navbar = document.getElementById('navbar');
                 if (window.scrollY > 80) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
+
+                // Show/Hide Scroll Button
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+
+            // Scroll to Top
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // 3. Scroll Reveal Observer
+        // Scroll Reveal Observer
         function setupObserver() {
             const observerOptions = {
                 root: null,
@@ -1092,7 +1260,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Only animate once
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);

@@ -1,0 +1,16 @@
+<svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left Black Triangle -->
+    <path d="M100 0 L0 120 H100 Z" fill="#0E0E0E"/>
+    
+    <!-- Right Red Triangle -->
+    <path d="M100 0 L200 120 H100 Z" fill="#D22B2B"/>
+    
+    <!-- ADAR Text -->
+    <text x="35" y="105" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="28" letter-spacing="1">ADAR</text>
+    
+    <!-- LIMITED Text -->
+    <text x="110" y="105" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="14" letter-spacing="3">LIMITED</text>
+    
+    <!-- RC Number -->
+    <text x="100" y="145" fill="#0E0E0E" font-family="monospace" font-size="12" text-anchor="middle">RC 6896461</text>
+</svg>
