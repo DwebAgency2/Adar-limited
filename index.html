@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adar Limited | Q2 Mastery Pod</title>
+    <link rel="icon" type="image/x-icon" href="logo/Adar%20Logo%20plain.png">
+    <link rel="apple-touch-icon" href="logo/Adar%20Logo%20plain.png">
+    <meta name="description"
+        content="Adar Limited provides the clarity, discipline, and AI literacy young professionals need to dominate the 21st-century job market. Join the Q2 Mastery Pod waitlist.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Variables */
+        :root {
+            --color-red: #D22B2B;
+            --color-red-hover: #E63333;
+            --color-bg-black: #0E0E0E;
+            --color-surface-dark: #161616;
+            --color-surface-card: #1E1E1E;
+            --color-border: #2A2A2A;
+            --color-text-primary: #F5F5F0;
+            --color-text-muted: #888888;
+
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body: 'Barlow', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-bg-black);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            /* Ensure images don't overflow */
+            display: block;
+        }
+
+        /* Typography Utilities */
+        .font-display {
+            font-family: var(--font-display);
+        }
+
+        .font-mono {
+            font-family: var(--font-mono);
+        }
+
+        .text-red {
+            color: var(--color-red);
+        }
+
+        .text-muted {
+            color: var(--color-text-muted);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons and UI Elements */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-red);
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 16px 32px;
+            /* Default padding */
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--color-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(210, 43, 43, 0.3);
+        }
+
+        .btn-large {
+            padding: 20px 48px;
+            font-size: 1.3rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            color: var(--color-red);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            color: var(--color-red);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: var(--color-bg-black);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        #navbar.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-link:not(.btn-nav)::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-red);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:not(.btn-nav):hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-nav {
+            background-color: var(--color-red);
+            padding: 8px 20px;
+            border-radius: 99px;
+            /* Pill shape */
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--color-red-hover);
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        #mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-bg-black);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-link {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: var(--color-text-primary);
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Centered content */
+            padding-top: 80px;
+            /* Offset fixed navbar */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%);
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 40rem;
+            opacity: 0.03;
+            color: white;
+            z-index: 0;
+            pointer-events: none;
+            line-height: 0.8;
+            user-select: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .hero-headline {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3rem;
+            /* Mobile first */
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-subheadline {
+            font-family: var(--font-body);
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            max-width: 560px;
+            margin-bottom: 40px;
+        }
+
+        .hero-micro {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        /* The Why Section */
+        #why {
+            background-color: var(--color-surface-dark);
+            text-align: center;
+        }
+
+        .why-container {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--color-red);
+            text-align: left;
+        }
+
+        .why-statement {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .why-body {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        /* Core Pillars / Programs */
+        #programs .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background-color: var(--color-surface-card);
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-red);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(210, 43, 43, 0.15);
+            z-index: 10;
+        }
+
+        .program-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-badge {
+            font-family: var(--font-mono);
+            color: var(--color-red);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .program-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-body {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: var(--color-red);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Legacy Tour */
+        #legacy {
+            background-color: var(--color-surface-dark);
+            /* Optional diagonal pattern background via CSS gradient */
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.02) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+        }
+
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .legacy-stat-block {
+            border-left: 1px solid var(--color-border);
+            padding-left: 2rem;
+        }
+
+        .stat-large {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--color-red);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--color-text-muted);
+        }
+
+        .stat-divider {
+            height: 1px;
+            width: 100%;
+            background-color: var(--color-red);
+            margin: 1.5rem 0;
+            opacity: 0.5;
+        }
+
+        /* Waitlist / Roadmap */
+        #waitlist {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .waitlist-container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .pill-badge {
+            background-color: var(--color-red);
+            color: white;
+            font-family: var(--font-mono);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .waitlist-heading {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .waitlist-sub {
+            font-size: 1.15rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .urgency-block {
+            border: 1px solid var(--color-red);
+            padding: 1.5rem;
+            text-align: left;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .urgency-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .urgency-list li::before {
+            content: '•';
+            color: var(--color-red);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .email-capture-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .email-input {
+            background: #111;
+            border: 1px solid var(--color-red);
+            color: white;
+            padding: 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-bg-black);
+            border-top: 1px solid var(--color-border);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 36px;
+            margin-bottom: 1rem;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .footer-tagline {
+            color: var(--color-text-muted);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-rc {
+            font-family: var(--font-mono);
+            color: #444;
+            font-size: 0.75rem;
+        }
+
+        .footer-label {
+            font-family: var(--font-mono);
+            color: var(--color-red);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-red);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1rem;
+        }
+
+        .social-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+            transition: fill 0.2s;
+        }
+
+        .social-icon:hover svg {
+            fill: var(--color-red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-border);
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 768px) {
+            .hero-headline {
+                font-size: 5rem;
+            }
+
+            .why-statement {
+                font-size: 2.2rem;
+            }
+
+            #programs .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .legacy-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .waitlist-heading {
+                font-size: 4rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: left;
+            }
+
+            .footer-logo {
+                margin: 0 0 1rem;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            /* Nav Desktop */
+            .hamburger {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .why-container {
+                margin: 0 auto;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Stagger delays */
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-500 {
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#">
+                <img src="logo/Adar%20Logo%20plain.png" alt="Adar Limited Logo" class="logo">
+            </a>
+
+            <div class="nav-links">
+                <a href="#programs" class="nav-link">Our Programs</a>
+                <a href="#legacy" class="nav-link">Legacy Tour</a>
+                <a href="#waitlist" class="nav-link btn-nav">Join Waitlist</a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE OVERLAY -->
+    <div id="mobile-menu-overlay">
+        <button class="mobile-close-btn" onclick="toggleMenu()">✕</button>
+        <a href="#programs" class="mobile-nav-link" onclick="toggleMenu()">Our Programs</a>
+        <a href="#legacy" class="mobile-nav-link" onclick="toggleMenu()">Legacy Tour</a>
+        <a href="#waitlist" class="mobile-nav-link text-red" onclick="toggleMenu()">Join Waitlist</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <!-- Optional Decorative BG Letter -->
+        <div class="hero-bg-text">A</div>
+
+        <div class="container hero-content">
+            <div class="tag font-mono reveal uppercase">Q2 Enrollment Open</div>
+
+            <h1 class="hero-headline reveal delay-100">
+                Building the Foundation <span class="text-red">Schools Forget.</span>
+            </h1>
+
+            <p class="hero-subheadline reveal delay-200">
+                We provide the clarity, discipline, and AI literacy young professionals need to dominate the
+                21st-century job market.
+            </p>
+
+            <div class="reveal delay-300">
+                <a href="#waitlist" class="btn">Join the Q2 Mastery Pod Waitlist →</a>
+                <p class="hero-micro">Limited spots available. Q2 cohort closes soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE WHY SECTION -->
+    <section id="why">
+        <div class="container">
+            <div class="why-container reveal">
+                <h2 class="why-statement">Degrees aren't enough. Trends are confusing. Consistency is hard.</h2>
+                <p class="why-body">We bridge the gap between where you are and where your career needs to be. Adar
+                    Limited exists for the young professional who is smart enough to know they're behind, and serious
+                    enough to do something about it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section id="programs">
+        <div class="container">
+            <h2 class="font-display reveal" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Three
+                Ways We Work With You</h2>
+
+            <div class="grid-3">
+
+                <!-- Card 1: Mastery Pod (Highlighted) -->
+                <div class="program-card reveal delay-100">
+                    <div>
+                        <!-- Diamond icon -->
+                        <div class="program-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="program-badge">B2C · 90-Day Program</span>
+                        <h3 class="program-title">Mastery Pod</h3>
+                        <p class="program-body">90 Days of Accountability, Identity Shifting, and Content Visibility.
+                            Built for high-growth individuals ready to stop coasting and start leading.</p>
+                    </div>
+                    <a href="#waitlist" class="card-link">Join the Waitlist →</a>
+                </div>
+
+                <!-- Card 2: Career Alignment -->
+                <div class="program-card reveal delay-200">
+                    <div>
+                        <div class="program-icon">
+                            <!-- Handshake icon -->
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m11 17 2 2a6 6 0 0 0 8-8l-2-2"></path>
+                                <path d="m12 5-2-2a6 6 0 0 0-8 8l2 2"></path>
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </div>
+                        <span class="program-badge">B2B · Institutional</span>
+                        <h3 class="program-title">Career Alignment</h3>
+                        <p class="program-body">We partner with EdTechs and academic institutions to reduce student
+                            dropout rates, increase graduate ROI, and build career-ready pipelines.</p>
+                    </div>
+                    <a href="mailto:adarlimited001@gmail.com" class="card-link">Request a Partnership →</a>
+                </div>
+
+                <!-- Card 3: Catalyst Calls -->
+                <div class="program-card reveal delay-300">
+                    <div>
+                        <div class="program-icon">
+                            <!-- Zap icon -->
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D22B2B"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <span class="program-badge">1:1 · Catalyst Session</span>
+                        <h3 class="program-title">Catalyst Calls</h3>
+                        <p class="program-body">30-minute high-impact sessions designed to move you from confusion to
+                            clarity. Whether it's career direction or life alignment — book a session and get unstuck.
+                        </p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <!-- Paid Track -->
+                        <a href="https://calendly.com/placeholder/paid-session" target="_blank" class="btn"
+                            style="font-size: 0.9rem; padding: 12px 20px; text-align: center;">
+                            Book Strategy Session
+                        </a>
+
+                        <p style="font-size: 0.7rem; color: #666; text-align: center; margin-top: 4px;">
+                            Payment required for personal advisory.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGACY TOUR SECTION -->
+    <section id="legacy">
+        <div class="container legacy-grid">
+            <div class="reveal-left">
+                <span class="tag">// IMPACT TOUR</span>
+                <h2 class="font-display" style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">The Legacy
+                    Tour</h2>
+                <p style="margin-bottom: 1.5rem;">Every quarter, we take our message directly into secondary schools
+                    across the country — because the best time to build the right foundation is before the career even
+                    begins. The Legacy Tour is our commitment to preparing the next generation before they ever feel the
+                    pressure of the job market.</p>
+                <p class="text-muted" style="font-style: italic; font-size: 0.9rem;">"Preparing the next generation
+                    before they even start."</p>
+            </div>
+
+            <div class="legacy-stat-block reveal-right delay-200">
+                <div class="stat-large">QUARTERLY</div>
+                <div class="stat-label">Outreach Events</div>
+                <div class="stat-divider"></div>
+                <!-- SSS Placeholder -->
+                <div class="stat-large">SSS</div>
+                <div class="stat-label">Secondary School Students Reached</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST SECTION -->
+    <section id="waitlist">
+        <div class="container waitlist-container reveal">
+            <span class="pill-badge">Q2 COHORT · NOW OPEN</span>
+            <h2 class="waitlist-heading">The Mastery Pod Returns in Q2.</h2>
+            <p class="waitlist-sub">We are accepting a limited number of high-growth individuals for our next 90-day
+                cohort. This is not a course. This is a transformation.</p>
+
+            <div class="urgency-block">
+                <ul class="urgency-list">
+                    <li>90 Days of structured accountability</li>
+                    <li>AI literacy and career positioning</li>
+                    <li>Identity and content visibility coaching</li>
+                </ul>
+            </div>
+
+            <div>
+                <!-- Primary Action -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzQ8I9HKWMWcuK7moHVKTlMxnLFZDYUzaY3hDnB9hsA6z8FQ/viewform?usp=publish-editor"
+                    target="_blank" class="btn btn-large">Secure Your Spot on the Waitlist →</a>
+                <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Q2 is filling fast.
+                    Don't miss it.</p>
+            </div>
+
+            <!-- Optional Email Fallback (commented out as per instructions until needed)
+            <form class="email-capture-form">
+                <input type="email" placeholder="Enter your email address" class="email-input">
+                <button type="submit" class="btn">Join Waitlist</button>
+            </form>
+            -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div>
+                    <img src="logo/Adar%20Logo%20plain.png" alt="Adar Limited Logo" class="footer-logo">
+                    <p class="footer-tagline">Building the Foundation Schools Forget.</p>
+                    <p class="footer-rc">RC 6896461</p>
+                </div>
+
+                <!-- Col 2 -->
+                <nav>
+                    <span class="footer-label">Navigate</span>
+                    <ul class="footer-links">
+                        <li><a href="#programs">Our Programs</a></li>
+                        <li><a href="#legacy">Legacy Tour</a></li>
+                        <li><a href="#waitlist">Join Waitlist</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Col 3 -->
+                <div>
+                    <span class="footer-label">Connect</span>
+                    <ul class="footer-links">
+                        <li><a href="mailto:adarlimited001@gmail.com">adarlimited001@gmail.com</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <!-- Linked In -->
+                        <a href="https://linkedin.com/company/adarlimited" target="_blank" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <!-- X/Twitter -->
+                        <a href="https://x.com/adarlimited" target="_blank" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/adarlimited" target="_blank" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://tiktok.com/@adarlimited" target="_blank" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.69 2.58-4.97 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.74-1.63.57-.96.61-2.15.58-3.23-.01-5.33-.01-10.66-.02-15.99z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Adar Limited. All rights reserved.</span>
+                <span>Registered in Nigeria · RC 6896461</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Mobile Menu Toggle
+        function toggleMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            overlay.classList.toggle('active');
+
+            // Toggle hamburger animation state if desired, 
+            // but we use a simple close button inside overlay for clarity.
+        }
+
+        // 2. Initial Page Load Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const fades = document.querySelectorAll('.fade-in-up');
+
+            // Simple staggered load (already handled by CSS delay classes + IntersectionObserver)
+            // But for the very first hero elements, let's trigger them manually if they are in view
+            // actually IntersectionObserver is better for all.
+
+            setupObserver();
+
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 80) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+
+        // 3. Scroll Reveal Observer
+        function setupObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+    </script>
+</body>
+
+</html>
