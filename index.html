@@ -651,6 +651,23 @@
             color: #666;
         }
 
+        .trademark-brand {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: #555;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .trademark-brand a {
+            color: var(--color-red);
+            transition: color 0.2s ease;
+        }
+
+        .trademark-brand a:hover {
+            color: var(--color-red-hover);
+        }
+
         /* Responsive Breakpoints */
         @media (min-width: 768px) {
             .hero-headline {
@@ -689,6 +706,11 @@
             .footer-bottom {
                 flex-direction: row;
                 justify-content: space-between;
+            }
+
+            .trademark-brand {
+                text-align: right;
+                margin-top: 0;
             }
 
             /* Nav Desktop */
@@ -1194,8 +1216,13 @@
             </div>
 
             <div class="footer-bottom">
-                <span>© 2025 Adar Limited. All rights reserved.</span>
-                <span>Registered in Nigeria · RC 6896461</span>
+                <div>
+                    <span>© 2025 Adar Limited. All rights reserved.</span>
+                    <span style="margin-left: 20px;">Registered in Nigeria · RC 6896461</span>
+                </div>
+                <div class="trademark-brand">
+                    Developed by <a href="https://assuredpixel-main.vercel.app/" target="_blank">AssuredPixel Team</a>
+                </div>
             </div>
         </div>
     </footer>
