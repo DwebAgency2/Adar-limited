@@ -98,7 +98,13 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
         }
 
         /* Buttons and UI Elements */
@@ -530,7 +536,13 @@
             display: inline-block;
             margin-bottom: 2.5rem;
             width: 100%;
-            max-width: 400px;
+            max-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .urgency-block {
+                max-width: 400px;
+            }
         }
 
         .urgency-list li {
@@ -649,12 +661,13 @@
             position: absolute;
             top: 55%;
             /* Slightly lower for better framing */
-            right: 0%;
-            /* More in view */
+            right: -5%;
+            /* Moved slightly off-screen to prevent overflow issues */
             transform: translateY(-50%);
             font-family: var(--font-display);
             font-weight: 900;
-            font-size: 18rem;
+            font-size: 12rem;
+            /* Scaled down for mobile */
             opacity: 0.03;
             /* Reduced opacity */
             color: var(--color-red);
@@ -754,41 +767,41 @@
             .hero-headline {
                 font-size: 5rem;
             }
-        }
 
-        .why-statement {
-            font-size: 2.2rem;
-        }
+            .why-statement {
+                font-size: 2.2rem;
+            }
 
-        .legacy-grid {
-            grid-template-columns: 1fr 1fr;
-        }
+            .legacy-grid {
+                grid-template-columns: 1fr 1fr;
+            }
 
-        .waitlist-heading {
-            font-size: 4rem;
-        }
+            .waitlist-heading {
+                font-size: 4rem;
+            }
 
-        .footer-grid {
-            grid-template-columns: 1fr 1fr 1fr;
-            text-align: left;
-        }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: left;
+            }
 
-        .footer-logo {
-            margin: 0 0 1rem;
-        }
+            .footer-logo {
+                margin: 0 0 1rem;
+            }
 
-        .social-icons {
-            justify-content: flex-start;
-        }
+            .social-icons {
+                justify-content: flex-start;
+            }
 
-        .footer-bottom {
-            flex-direction: row;
-            justify-content: space-between;
-        }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
-        .trademark-brand {
-            text-align: right;
-            margin-top: 0;
+            .trademark-brand {
+                text-align: right;
+                margin-top: 0;
+            }
         }
 
         /* Nav Desktop */
@@ -1030,10 +1043,17 @@
 
         .story-image-container img {
             width: 100%;
-            height: 550px;
+            height: 350px;
+            /* Scaled down height for mobile */
             object-fit: cover;
             object-position: top;
             border-radius: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .story-image-container img {
+                height: 550px;
+            }
         }
 
         .story-text-card {
@@ -1070,18 +1090,15 @@
 
         @media (max-width: 767px) {
             .hero-headline {
-                font-size: 2.8rem;
-                /* Slightly smaller for better mobile fit */
-            }
-
-            .container {
-                padding: 0 20px;
-                /* Consistent mobile padding */
+                font-size: 2.5rem;
             }
 
             section {
-                padding: 60px 0;
-                /* Tighter vertical spacing for mobile */
+                padding: 40px 0;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
             }
         }
 
