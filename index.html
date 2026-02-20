@@ -348,13 +348,19 @@
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 640px) {
             .grid-3 {
                 grid-template-columns: repeat(3, 1fr);
             }
 
             .grid-services {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-services {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1062,15 +1068,71 @@
             }
         }
 
-        .service-category-tag {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(210, 43, 43, 0.05);
-            color: var(--color-red);
-            border-radius: 99px;
+        @media (max-width: 767px) {
+            .hero-headline {
+                font-size: 2.8rem;
+                /* Slightly smaller for better mobile fit */
+            }
+
+            .container {
+                padding: 0 20px;
+                /* Consistent mobile padding */
+            }
+
+            section {
+                padding: 60px 0;
+                /* Tighter vertical spacing for mobile */
+            }
+        }
+
+        /* Scarcity Bar */
+        .scarcity-container {
+            margin: 2rem auto;
+            max-width: 450px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .scarcity-label {
+            display: flex;
+            justify-content: space-between;
             font-family: var(--font-mono);
             font-size: 0.85rem;
-            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-red);
+            font-weight: 600;
+        }
+
+        .progress-track {
+            height: 10px;
+            background: rgba(210, 43, 43, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--color-red);
+            width: 74%;
+            /* 74/100 */
+            border-radius: 5px;
+            transition: width 1s ease-out;
+        }
+
+        .early-bird-note {
+            display: inline-block;
+            background: #FFF9F9;
+            border: 1px dashed var(--color-red);
+            color: var(--color-red);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-card:hover .play-btn {
+            transform: scale(1.15);
         }
     </style>
 </head>
@@ -1127,12 +1189,12 @@
             </h1>
 
             <p class="hero-subheadline reveal delay-200">
-                We provide the clarity, discipline, and AI literacy young professionals need to dominate the
-                21st-century job market.
+                Life doesn’t have a curriculum, but your career should. We provide the clarity, discipline, and systems
+                to ensure you don’t wake up 10 years from now wondering where the time went.
             </p>
 
             <div class="reveal delay-300">
-                <a href="#waitlist" class="btn">Join the Q2 Mastery Pod Waitlist →</a>
+                <a href="#waitlist" class="btn">Join the Q2 Mastery Pod →</a>
                 <p class="hero-micro">Limited spots available. Q2 cohort closes soon.</p>
             </div>
         </div>
@@ -1143,11 +1205,18 @@
         <div class="container">
             <div class="why-grid reveal">
                 <div class="why-text">
-                    <h2 class="why-statement">Degrees aren't enough. Trends are confusing. Consistency is hard.</h2>
-                    <p class="why-body">We bridge the gap between where you are and where your career needs to be. Adar
-                        Limited exists for the young professional who is smart enough to know they're behind, and
-                        serious
-                        enough to do something about it.</p>
+                    <h2 class="why-statement">Why Adar? Because Degrees Aren't Enough.</h2>
+                    <p class="why-body" style="margin-bottom: 1.5rem;">I spent a year studying Design because it felt
+                        sophisticated. What I didn’t do was
+                        check if it aligned with my natural skills and long-term goals. I was trend-chasing, and I
+                        almost paid for it with my future.</p>
+                    <p class="why-body" style="margin-bottom: 1.5rem;">Most schools teach you subjects; they don’t teach
+                        you how to build a life. At Adar,
+                        we’ve decoded the basic life skills and professional principles that help you stop
+                        'cruising' and start executing. We help you find your natural field so you can channel
+                        your energy where it actually yields results.</p>
+                    <p class="why-body" style="font-style: italic; font-weight: 500;">— Adaeze Onebunne, Founder & CEO
+                    </p>
                 </div>
                 <div class="why-image reveal-right delay-200">
                     <img src="images/photo-2.jpg" alt="Young professional working with focus" loading="lazy">
@@ -1176,9 +1245,11 @@
                             </svg>
                         </div>
                         <span class="program-badge">B2C · 90-Day Transformation</span>
-                        <h3 class="program-title">Mastery Pod</h3>
-                        <p class="program-body">90 Days of structured accountability and career positioning for
-                            high-growth individuals ready to lead in the digital age.</p>
+                        <h3 class="program-title">The Mastery Pod: 90 Days to a New Identity</h3>
+                        <p class="program-body">Move from Stagnant to Unstoppable. 90 Days of Clarity, Consistency &
+                            Accountability. Reclaim your time and build your digital footprint.</p>
+                        <p class="program-body" style="font-weight: 700; margin-top: 1rem; color: var(--color-red);">
+                            Investment: $35</p>
                     </div>
                     <a href="#waitlist" class="card-link">Join the Waitlist <span class="arrow">→</span></a>
                 </div>
@@ -1196,11 +1267,13 @@
                             </svg>
                         </div>
                         <span class="program-badge">B2B · Institutional Alignment</span>
-                        <h3 class="program-title">EdTech Partnership</h3>
-                        <p class="program-body">We partner with EdTechs and academic institutions to reduce student
-                            dropout rates and build career-ready pipelines.</p>
+                        <h3 class="program-title">Stop the 40% Dropout Rate</h3>
+                        <p class="program-body" style="font-weight: 600; margin-bottom: 0.5rem;">Your academy provides
+                            the skills; we provide the alignment that keeps them there.</p>
+                        <p class="program-body">We protect your bottom line by identifying at-risk learners and building
+                            the infrastructure that turns buyers into advocates.</p>
                     </div>
-                    <a href="mailto:adarlimited001@gmail.com" class="card-link">Request a Partnership <span
+                    <a href="mailto:adarlimited001@gmail.com" class="card-link">Book a Partner Alignment Call <span
                             class="arrow">→</span></a>
                 </div>
 
@@ -1217,13 +1290,17 @@
                             </svg>
                         </div>
                         <span class="program-badge">Coaching · High Impact</span>
-                        <h3 class="program-title">1:1 Clarity Call</h3>
-                        <p class="program-body">30-minute strategic sessions designed to unlock your potential and move
-                            you from confusion to absolute career clarity.</p>
+                        <h3 class="program-title">From Confusion to Clarity in 25 Minutes</h3>
+                        <p class="program-body" style="font-weight: 600; margin-bottom: 0.5rem;">For the graduate who
+                            feels direction-poor.</p>
+                        <p class="program-body">Stop over-thinking and start acting. Book a 1:1 session with an Adar
+                            Consultant to audit your current path.</p>
+                        <p class="program-body" style="font-weight: 700; margin-top: 1rem; color: var(--color-red);">
+                            Price: $7</p>
                     </div>
 
                     <a href="https://selar.com/61u73ejk37" target="_blank" class="card-link">
-                        Book Strategy Session <span class="arrow">→</span>
+                        Book Your Clarity Call <span class="arrow">→</span>
                     </a>
                 </div>
 
@@ -1240,13 +1317,13 @@
                             </svg>
                         </div>
                         <span class="program-badge">Impact · Outreach</span>
-                        <h3 class="program-title">Legacy Tour</h3>
-                        <p class="program-body">Building the right foundation for the next generation. Every quarter, we
-                            reach students before they enter the job market.</p>
+                        <h3 class="program-title">Preparing the Next Generation</h3>
+                        <p class="program-body">Once a quarter, we visit secondary schools to expose students to
+                            21st-century career choices and personality alignment.</p>
                     </div>
 
                     <a href="mailto:adarlimited001@gmail.com" class="card-link">
-                        Inquire About Tour <span class="arrow">→</span>
+                        Learn More About Our Community Impact <span class="arrow">→</span>
                     </a>
                 </div>
 
@@ -1279,8 +1356,11 @@
                         </div>
                         <h3 class="font-display" style="font-size: 2rem; margin-bottom: 1rem; color: var(--color-red);">
                             Our Mission</h3>
-                        <p style="line-height: 1.7;">To provide young professionals with the specific clarity,
-                            discipline, and AI literacy required to dominate the 21st-century job market.</p>
+                        <p style="line-height: 1.7;">To provide Africa’s next generation with the clarity, discipline,
+                            and practical systems needed to bridge the gap between formal education and 21st-century
+                            career success.</p>
+                        <p style="font-size: 0.85rem; margin-top: 1rem; font-style: italic;">What we do: We build the
+                            foundation schools forget.</p>
                     </div>
                 </div>
                 <!-- Vision -->
@@ -1294,8 +1374,11 @@
                             </svg>
                         </div>
                         <h3 class="font-display" style="font-size: 2rem; margin-bottom: 1rem;">Our Vision</h3>
-                        <p style="line-height: 1.7;">To become the global gold standard for post-academic career
-                            alignment and strategic professional transformation.</p>
+                        <p style="line-height: 1.7;">To become Africa’s premier engine for human capital development,
+                            where every young professional is strategically aligned with their purpose and equipped to
+                            lead in the global economy.</p>
+                        <p style="font-size: 0.85rem; margin-top: 1rem; font-style: italic;">Where we are going:
+                            Eliminating career confusion across the continent.</p>
                     </div>
                 </div>
                 <!-- Values -->
@@ -1311,12 +1394,26 @@
                         </div>
                         <h3 class="font-display" style="font-size: 2rem; margin-bottom: 1rem;">Core Values</h3>
                         <ul style="gap: 12px; display: grid;">
-                            <li style="display: flex; align-items: center; gap: 10px;"><span
-                                    style="color: var(--color-red);">●</span> Radical Accountability</li>
-                            <li style="display: flex; align-items: center; gap: 10px;"><span
-                                    style="color: var(--color-red);">●</span> Strategic Clarity</li>
-                            <li style="display: flex; align-items: center; gap: 10px;"><span
-                                    style="color: var(--color-red);">●</span> Digital-First Thinking</li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;"><span
+                                    style="color: var(--color-red);">●</span>
+                                <div><strong>Clarity Over Trends:</strong> We follow what’s true to the individual’s
+                                    natural strengths.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;"><span
+                                    style="color: var(--color-red);">●</span>
+                                <div><strong>Radical Execution:</strong> Consistency and disciplined execution move the
+                                    needle.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;"><span
+                                    style="color: var(--color-red);">●</span>
+                                <div><strong>Empathy-Driven Infrastructure:</strong> Humanizing education so no learner
+                                    is left behind.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;"><span
+                                    style="color: var(--color-red);">●</span>
+                                <div><strong>Future-Ready Literacy:</strong> Embracing AI as a force multiplier for
+                                    potential.</div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1331,18 +1428,110 @@
                     <span class="tag" style="margin-bottom: 0.5rem;">// THE ORIGIN</span>
                     <h3 class="font-display" style="font-size: 2.8rem; line-height: 1.1; margin-bottom: 1.5rem;">The
                         Adar Story</h3>
-                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">Adar Limited was born from a
-                        simple observation: the world is changing faster than our classrooms. Many young professionals
-                        are brilliant, but they lack the "operating system" to translate that brilliance into career
-                        dominance.</p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">We started as a small cohort dedicated to discipline
-                        and have grown into a multi-pillar institution that bridges the gap between potential and
-                        performance through our proprietary Mastery Framework.</p>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">Adar Limited exists for the
+                        young
+                        professional who is smart enough to know they're behind, and serious
+                        enough to do something about it. We’ve decoded the basic life skills and professional principles
+                        that help you stop 'cruising' and start executing.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">By providing the clarity, discipline, and practical
+                        systems needed to bridge the gap between formal education and 21st-century success, we help you
+                        channel your energy where it actually yields results.</p>
 
                     <div class="service-category-tag">
                         B2C & B2B Solutions for Professional Excellence
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPOTLIGHT SECTION -->
+    <section id="spotlight">
+        <div class="container">
+            <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+                <span class="tag">// TESTIMONIAL</span>
+                <h2 class="font-display" style="font-size: 3rem; font-weight: 800;">Adar Intern Spotlight: Real Growth,
+                    Real Systems.</h2>
+                <p style="max-width: 600px; margin: 1rem auto; color: var(--color-text-muted);">See how our proprietary
+                    systems are transforming the lives of young professionals through our intern experience.</p>
+            </div>
+
+            <div class="grid-services">
+                <!-- Video Item 1 -->
+                <a href="#" class="program-card reveal delay-100"
+                    style="padding: 0; overflow: hidden; border-top: none; text-decoration: none; color: inherit; display: block;">
+                    <div
+                        style="aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div
+                            style="color: white; font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 20px;">
+                            Intern Spotlight #1<br><span style="font-size: 0.6rem; opacity: 0.6;">(Strategic
+                                Execution)</span>
+                        </div>
+                        <div class="play-btn"
+                            style="position: absolute; width: 50px; height: 50px; background: var(--color-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 class="font-display" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Clarity Over Trends
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted);">"The systems here didn't just
+                            teach
+                            me design; they taught me how to execute with discipline."</p>
+                    </div>
+                </a>
+
+                <!-- Video Item 2 -->
+                <a href="#" class="program-card reveal delay-200"
+                    style="padding: 0; overflow: hidden; border-top: none; text-decoration: none; color: inherit; display: block;">
+                    <div
+                        style="aspect-ratio: 16/9; background: #111; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div
+                            style="color: white; font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 20px;">
+                            Intern Spotlight #2<br><span style="font-size: 0.6rem; opacity: 0.6;">(Systemic
+                                Accountability)</span>
+                        </div>
+                        <div
+                            style="position: absolute; width: 50px; height: 50px; background: var(--color-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 class="font-display" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Radical Execution
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted);">"I learned that consistency is the
+                            only thing that moves the needle. Adar provided the track."</p>
+                    </div>
+                </a>
+
+                <!-- Video Item 3 -->
+                <a href="#" class="program-card reveal delay-300"
+                    style="padding: 0; overflow: hidden; border-top: none; text-decoration: none; color: inherit; display: block;">
+                    <div
+                        style="aspect-ratio: 16/9; background: #080808; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <div
+                            style="color: white; font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 20px;">
+                            Intern Spotlight #3<br><span style="font-size: 0.6rem; opacity: 0.6;">(Future-Ready
+                                Literacy)</span>
+                        </div>
+                        <div
+                            style="position: absolute; width: 50px; height: 50px; background: var(--color-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 class="font-display" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Digital Footprint
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted);">"Building a brand isn't just about
+                            posting; it's about having a systemic identity. Adar bridged that gap."</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1400,24 +1589,40 @@
     <section id="waitlist">
         <div class="container waitlist-container reveal">
             <span class="pill-badge">Q2 COHORT · NOW OPEN</span>
-            <h2 class="waitlist-heading">The Mastery Pod Returns in Q2.</h2>
-            <p class="waitlist-sub">We are accepting a limited number of high-growth individuals for our next 90-day
-                cohort. This is not a course. This is a transformation.</p>
+            <h2 class="waitlist-heading">The Mastery Pod: 90 Days to a New Identity.</h2>
+            <p class="waitlist-sub">Stop the cycle of regret. If you’ve spent the last 5 years feeling 'stuck,' it’s
+                not because you aren’t smart; it’s because you lack a system.</p>
+
+            <div class="scarcity-container">
+                <div class="scarcity-label">
+                    <span>APPLICATIONS OPEN</span>
+                    <span>74/100 SPOTS REMAINING</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
 
             <div class="urgency-block">
+                <h4 style="margin-bottom: 1rem; color: var(--color-text-primary);">What Participants Learn:</h4>
                 <ul class="urgency-list">
-                    <li>90 Days of structured accountability</li>
-                    <li>AI literacy and career positioning</li>
-                    <li>Identity and content visibility coaching</li>
+                    <li><strong>Radical Discipline:</strong> Stay consistent even when motivation fades.</li>
+                    <li><strong>Strategic Planning:</strong> Track progress toward life-altering goals.</li>
+                    <li><strong>Digital Visibility:</strong> Build your professional footprint while you learn.</li>
+                    <li><strong>AI Force Multipliers:</strong> Reclaim 5+ hours of your week.</li>
                 </ul>
             </div>
 
-            <div>
+            <div style="margin-top: 2rem;">
+                <div class="early-bird-note">
+                    Early Bird Pricing for Q2 Cohort: $35
+                </div>
+                <br>
                 <!-- Primary Action -->
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzQ8I9HKWMWcuK7moHVKTlMxnLFZDYUzaY3hDnB9hsA6z8FQ/viewform?usp=publish-editor"
                     target="_blank" class="btn btn-large">Secure Your Spot on the Waitlist →</a>
-                <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Q2 is filling fast.
-                    Don't miss it.</p>
+                <p class="text-muted" style="margin-top: 1.5rem; font-size: 0.9rem;">Join 100 ambitious professionals.
+                    Q2 is filling fast.</p>
             </div>
 
             <!-- Optional Email Fallback (commented out as per instructions until needed)
